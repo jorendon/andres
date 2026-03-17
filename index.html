@@ -8,16 +8,25 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/Xv4NJHnZ/avatar.png">
 
-    <!-- Meta etiquetas para WhatsApp y redes sociales -->
+    <!-- Meta etiquetas para WhatsApp y redes sociales (EN INGLÉS) -->
     <meta property="og:title" content="Andres' Roblox Birthday Bash! 🎮">
     <meta property="og:description" content="You're invited to celebrate Andres' 9th Birthday! Level Up with us on April 18th. RSVP inside!">
-
+    
+    <!-- Link del preview de la invitación completa -->
     <meta property="og:image" content="https://i.postimg.cc/R0mY8v9m/Andres-Invitation-Preview.png">
+    <meta property="og:image:secure_url" content="https://i.postimg.cc/R0mY8v9m/Andres-Invitation-Preview.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="1000">
+    
     <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Andres' Roblox Birthday Bash! 🎮">
+    <meta name="twitter:description" content="You're invited! Join us for a Level 9 Roblox Party.">
+    <meta name="twitter:image" content="https://i.postimg.cc/R0mY8v9m/Andres-Invitation-Preview.png">
 
     <!-- Herramientas externas -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     
     <style>
@@ -115,7 +124,6 @@
             border-radius: 50%;
         }
 
-        /* Botón de Idioma reubicado al fondo de la tarjeta */
         #langToggleCard {
             display: inline-flex;
             align-items: center;
@@ -131,26 +139,6 @@
             cursor: pointer;
             transition: all 0.2s;
             text-transform: uppercase;
-        }
-        #langToggleCard:hover {
-            background: #e5e7eb;
-            border-color: var(--roblox-sky);
-            color: var(--roblox-blue-dark);
-        }
-
-        #captureBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 50px;
-            font-size: 12px;
-            z-index: 100;
-            backdrop-filter: blur(4px);
-            font-weight: bold;
-            transition: all 0.3s;
         }
 
         .confetti-slow {
@@ -178,9 +166,6 @@
 </head>
 <body>
 
-    <!-- Botón de Captura Externo -->
-    <button id="captureBtn" onclick="takeScreenshot()">📸 Screenshot</button>
-
     <div id="invitation-card" class="max-w-md w-full roblox-card text-center bg-white">
         
         <div class="card-header-bg">
@@ -189,7 +174,7 @@
                 <h1 id="titleTxt" class="multicolor-text roblox-font text-5xl sm:text-6xl tracking-widest uppercase">
                     <span style="color: var(--roblox-lava)">B</span><span style="color: var(--roblox-gold)">I</span><span style="color: var(--roblox-sky)">R</span><span style="color: var(--roblox-grass)">T</span><span style="color: var(--roblox-lava)">H</span><span style="color: var(--roblox-gold)">D</span><span style="color: var(--roblox-sky)">A</span><span style="color: var(--roblox-grass)">Y</span><span style="color: var(--roblox-lava)">!</span>
                 </h1>
-                <p id="subTitle" class="text-[var(--roblox-blue-dark)] font-black text-xl tracking-widest uppercase mt-1">Invitación de Fiesta</p>
+                <p id="subTitle" class="text-[var(--roblox-blue-dark)] font-black text-xl tracking-widest uppercase mt-1">Party Invitation</p>
             </div>
         </div>
 
@@ -199,51 +184,51 @@
             </div>
 
             <div class="mb-6">
-                <h2 id="turningTxt" class="text-2xl font-black text-[var(--roblox-blue-dark)] uppercase">Andrés cumple...</h2>
+                <h2 id="turningTxt" class="text-2xl font-black text-[var(--roblox-blue-dark)] uppercase">Andres is turning...</h2>
                 <div class="inline-block bg-[var(--roblox-lava)] text-white roblox-font text-3xl px-6 py-1 rounded-full shadow-lg transform -rotate-2">
-                    <span id="levelLabel">NIVEL</span> 9
+                    <span id="levelLabel">LEVEL</span> 9
                 </div>
             </div>
             
             <div class="space-y-4 text-left bg-blue-50/70 p-6 rounded-[2.5rem] border-4 border-[var(--roblox-sky)] shadow-inner">
-                <!-- Fecha -->
+                <!-- Fecha/Date -->
                 <div class="flex items-center gap-4">
                     <div class="bg-[var(--roblox-gold)] p-3 rounded-xl text-white shadow-lg">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
                     </div>
                     <div>
-                        <p id="whenLabel" class="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-0">Cuándo</p>
-                        <p id="dateTxt" class="font-bold text-gray-700 leading-tight">Sábado, 18 de Abril, 2026<br><span id="timeTxt" class="text-xs">A partir de las 2:00 PM</span></p>
+                        <p id="whenLabel" class="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-0">When</p>
+                        <p id="dateTxt" class="font-bold text-gray-700 leading-tight">Saturday, April 18, 2026<br><span id="timeTxt" class="text-xs">Starting at 2:00 PM</span></p>
                     </div>
                 </div>
                 
-                <!-- Lugar -->
+                <!-- Ubicación/Location -->
                 <a href="https://www.google.com/maps/search/?api=1&query=469+Bohannon+Blvd,+Orlando+FL+32824" target="_blank" class="flex items-center gap-4 hover:scale-[1.02] transition-transform">
                     <div class="bg-[var(--roblox-lava)] p-3 rounded-xl text-white shadow-lg">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     </div>
                     <div>
-                        <p id="whereLabel" class="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-0">Dónde (Mapa)</p>
+                        <p id="whereLabel" class="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-0">Where (Maps)</p>
                         <p class="font-bold text-gray-700 leading-tight">469 Bohannon Blvd,<br>Orlando FL 32824</p>
                     </div>
                 </a>
             </div>
 
             <button id="rsvpBtn" class="w-full mt-8 py-5 px-6 rounded-3xl btn-action text-white roblox-font text-3xl tracking-widest shadow-xl">
-                CONFIRMAR ASISTENCIA
+                RSVP NOW
             </button>
             
-            <!-- Botón de Idioma centrado al final del contenido -->
+            <!-- Selector de Idioma/Language Switcher -->
             <button id="langToggleCard" onclick="toggleLanguage()">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                 <span id="langBtnLabel">ES ⇄ EN</span>
             </button>
 
-           <p class="mt-6 text-[9px] text-blue-300 font-black uppercase tracking-[0.3em]">Powered by Jonathan Rendon 2026</p>
+          <a href="https://jrendon.dev">  <p class="mt-6 text-[9px] text-blue-300 font-black uppercase tracking-[0.3em]">Powered by Jonathan Rendon 2026</p></a>
         </div>
     </div>
 
-    <!-- Modal Formulario -->
+    <!-- Modal RSVP -->
     <div id="modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-[3rem] max-w-sm w-full p-8 border-[6px] border-[var(--roblox-gold)] border-b-[12px] relative shadow-2xl">
             <button id="closeBtn" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-all">
@@ -251,18 +236,18 @@
             </button>
 
             <div id="formContainer">
-                <h3 id="modalTitle" class="roblox-font text-3xl text-center text-gray-800 mb-6 uppercase">Confirmar RSVP</h3>
+                <h3 id="modalTitle" class="roblox-font text-3xl text-center text-gray-800 mb-6 uppercase">Confirm RSVP</h3>
                 <form id="rsvpForm" class="space-y-4">
                     <div>
-                        <label id="labelName" class="block text-[10px] font-black text-gray-400 uppercase mb-1 ml-1">Nombre del Jugador</label>
+                        <label id="labelName" class="block text-[10px] font-black text-gray-400 uppercase mb-1 ml-1">Player Name</label>
                         <input type="text" id="pName" required class="w-full px-4 py-3 rounded-xl border-4 border-blue-50 bg-blue-50 focus:bg-white focus:border-[var(--roblox-sky)] outline-none font-bold text-gray-700 transition-all" placeholder="...">
                     </div>
                     <div>
-                        <label id="labelGuests" class="block text-[10px] font-black text-gray-400 uppercase mb-1 ml-1">Invitados</label>
+                        <label id="labelGuests" class="block text-[10px] font-black text-gray-400 uppercase mb-1 ml-1">Guests</label>
                         <input type="number" id="pGuests" required min="1" max="10" value="1" class="w-full px-4 py-3 rounded-xl border-4 border-blue-50 bg-blue-50 focus:bg-white focus:border-[var(--roblox-sky)] outline-none font-bold text-gray-700 transition-all">
                     </div>
                     <button type="submit" id="submitBtn" class="w-full py-4 bg-[var(--roblox-grass)] text-white roblox-font text-xl rounded-xl border-b-[6px] border-[#4da822] active:border-b-0 active:translate-y-1 flex items-center justify-center gap-3">
-                        <span id="btnSubmitTxt">¡ME UNO AL JUEGO!</span>
+                        <span id="btnSubmitTxt">CONFIRM JOIN</span>
                         <div id="spinner" class="loading-spinner hidden"></div>
                     </button>
                 </form>
@@ -272,8 +257,8 @@
                 <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
-                <h4 id="successTitle" class="roblox-font text-3xl text-gray-800">¡Ya estás dentro!</h4>
-                <p id="successSub" class="text-gray-500 font-bold mt-2">¡Nos vemos el 18 de abril!</p>
+                <h4 id="successTitle" class="roblox-font text-3xl text-gray-800">You're In!</h4>
+                <p id="successSub" class="text-gray-500 font-bold mt-2">See you on April 18th!</p>
             </div>
         </div>
     </div>
@@ -281,7 +266,7 @@
     <script>
         const scriptURL = "https://script.google.com/macros/s/AKfycbzYtSUhIE6tSvDdJBAMffn9gno23W4kyGE_FGrA3_AmIoEUK6RAzJryUAsMv3ykRxI/exec"; 
         
-        let currentLang = 'es';
+        let currentLang = 'en';
 
         const translations = {
             es: {
@@ -348,19 +333,13 @@
             updateLanguage(currentLang);
         }
 
-        // Lógica de Autodetección de Idioma
         window.onload = () => {
             const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
-            if (userLang.startsWith('en')) {
-                currentLang = 'en';
-            } else {
-                currentLang = 'es';
-            }
+            currentLang = userLang.startsWith('es') ? 'es' : 'en';
             updateLanguage(currentLang);
             createConfetti();
         };
 
-        // RSVP Logic
         const modal = document.getElementById('modal');
         const rsvpBtn = document.getElementById('rsvpBtn');
         const closeBtn = document.getElementById('closeBtn');
@@ -421,27 +400,6 @@
                 c.style.borderRadius = '2px';
                 document.body.appendChild(c);
             }
-        }
-
-        function takeScreenshot() {
-            const card = document.getElementById('invitation-card');
-            const btn = document.getElementById('captureBtn');
-            const langBtn = document.getElementById('langToggleCard');
-            btn.style.opacity = '0';
-            langBtn.style.opacity = '0';
-            
-            html2canvas(card, {
-                backgroundColor: "#2CB1FF",
-                scale: 2,
-                useCORS: true
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = `Andres_Invitation_${currentLang}.png`;
-                link.href = canvas.toDataURL();
-                link.click();
-                btn.style.opacity = '1';
-                langBtn.style.opacity = '1';
-            });
         }
 
         window.onclick = (e) => { if (e.target === modal) closeBtn.onclick(); };

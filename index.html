@@ -8,7 +8,6 @@
     <!-- Meta etiquetas para WhatsApp y redes sociales (Open Graph) -->
     <meta property="og:title" content="Andres' Birthday Bash! 🎮">
     <meta property="og:description" content="You're invited to Andres' Roblox Birthday Party on April 18, 2026. Level Up with us!">
-    <!-- Actualizado a PNG para soportar la transparencia en el preview -->
     <meta property="og:image" content="avatar.png">
     <meta property="og:type" content="website">
     <meta property="og:image:type" content="image/png">
@@ -34,6 +33,7 @@
             justify-content: center;
             padding: 20px;
             overflow-x: hidden;
+            /* Escenario de fondo */
             background-image: linear-gradient(rgba(44, 177, 255, 0.7), rgba(44, 177, 255, 0.7)), url('image_058ce9.jpg');
             background-size: cover;
             background-position: center;
@@ -75,7 +75,7 @@
             background-image: url('image_058ce9.jpg');
             background-size: cover;
             background-position: center;
-            height: 200px;
+            height: 240px; /* Aumentado de 200px para dar más espacio vertical */
             position: relative;
         }
 
@@ -101,13 +101,13 @@
             position: relative;
             width: 240px;
             height: 240px;
-            margin: -140px auto 10px;
+            /* Margen ajustado de -140px a -100px para que no suba tanto */
+            margin: -100px auto 10px; 
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 20;
-            /* Resplandor radial para que el PNG transparente resalte */
             background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
             border-radius: 50%;
         }
@@ -153,17 +153,18 @@
         
         <div class="card-header-bg">
             <div class="card-header-overlay"></div>
-            <div class="relative z-10 pt-8">
+            <div class="relative z-10 pt-6">
                 <!-- Título Multicolor -->
                 <h1 class="multicolor-text roblox-font text-5xl sm:text-6xl tracking-widest uppercase">
                     <span style="color: var(--roblox-lava)">B</span><span style="color: var(--roblox-gold)">I</span><span style="color: var(--roblox-sky)">R</span><span style="color: var(--roblox-grass)">T</span><span style="color: var(--roblox-lava)">H</span><span style="color: var(--roblox-gold)">D</span><span style="color: var(--roblox-sky)">A</span><span style="color: var(--roblox-grass)">Y</span><span style="color: var(--roblox-lava)">!</span>
                 </h1>
-                <p class="text-[var(--roblox-blue-dark)] font-black text-xl tracking-widest uppercase mt-2">Party Invitation</p>
+                <!-- Este texto ahora tiene más espacio y no será tapado -->
+                <p class="text-[var(--roblox-blue-dark)] font-black text-xl tracking-widest uppercase mt-1">Party Invitation</p>
             </div>
         </div>
 
         <div class="px-8 pb-12 pt-4 relative">
-            <!-- Espacio para el nuevo avatar .PNG transparente -->
+            <!-- Avatar Box con margen superior suavizado -->
             <div class="avatar-box floating">
                 <img src="avatar.png" alt="Andres Avatar" class="avatar-img">
             </div>
@@ -199,6 +200,7 @@
                 RSVP NOW
             </button>
             
+            <p class="mt-8 text-[10px] text-blue-300 font-black uppercase tracking-[0.4em]">Powered by Block-Engine 2026</p>
         </div>
     </div>
 

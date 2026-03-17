@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -191,7 +191,6 @@
             </div>
             
             <div class="space-y-4 text-left bg-blue-50/70 p-6 rounded-[2.5rem] border-4 border-[var(--roblox-sky)] shadow-inner">
-                <!-- Fecha/Date -->
                 <div class="flex items-center gap-4">
                     <div class="bg-[var(--roblox-gold)] p-3 rounded-xl text-white shadow-lg">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
@@ -202,7 +201,6 @@
                     </div>
                 </div>
                 
-                <!-- Ubicación/Location -->
                 <a href="https://www.google.com/maps/search/?api=1&query=469+Bohannon+Blvd,+Orlando+FL+32824" target="_blank" class="flex items-center gap-4 hover:scale-[1.02] transition-transform">
                     <div class="bg-[var(--roblox-lava)] p-3 rounded-xl text-white shadow-lg">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -218,13 +216,14 @@
                 RSVP NOW
             </button>
             
-            <!-- Selector de Idioma/Language Switcher -->
             <button id="langToggleCard" onclick="toggleLanguage()">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                 <span id="langBtnLabel">ES ⇄ EN</span>
             </button>
 
-          <a href="https://jrendon.dev">  <p class="mt-6 text-[9px] text-blue-300 font-black uppercase tracking-[0.3em]">Powered by Jonathan Rendon 2026</p></a>
+           <p class="mt-6 text-[9px] text-blue-300 font-black uppercase tracking-[0.3em]">
+               Powered by <a href="https://jrendon.dev" target="_blank" class="hover:text-[var(--roblox-gold)] transition-colors underline">Jonathan Rendon</a> 2026
+           </p>
         </div>
     </div>
 
@@ -243,6 +242,10 @@
                         <input type="text" id="pName" required class="w-full px-4 py-3 rounded-xl border-4 border-blue-50 bg-blue-50 focus:bg-white focus:border-[var(--roblox-sky)] outline-none font-bold text-gray-700 transition-all" placeholder="...">
                     </div>
                     <div>
+                        <label id="labelPhone" class="block text-[10px] font-black text-gray-400 uppercase mb-1 ml-1">Phone Number</label>
+                        <input type="tel" id="pPhone" required class="w-full px-4 py-3 rounded-xl border-4 border-blue-50 bg-blue-50 focus:bg-white focus:border-[var(--roblox-sky)] outline-none font-bold text-gray-700 transition-all" placeholder="...">
+                    </div>
+                    <div>
                         <label id="labelGuests" class="block text-[10px] font-black text-gray-400 uppercase mb-1 ml-1">Guests</label>
                         <input type="number" id="pGuests" required min="1" max="10" value="1" class="w-full px-4 py-3 rounded-xl border-4 border-blue-50 bg-blue-50 focus:bg-white focus:border-[var(--roblox-sky)] outline-none font-bold text-gray-700 transition-all">
                     </div>
@@ -253,12 +256,21 @@
                 </form>
             </div>
 
+            <!-- MENSAJES DE RESPUESTA -->
             <div id="successMsg" class="hidden text-center py-6">
                 <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
-                <h4 id="successTitle" class="roblox-font text-3xl text-gray-800">You're In!</h4>
+                <h4 id="successTitle" class="roblox-font text-3xl text-gray-800 uppercase">You're In!</h4>
                 <p id="successSub" class="text-gray-500 font-bold mt-2">See you on April 18th!</p>
+            </div>
+
+            <div id="errorMsg" class="hidden text-center py-6">
+                <div class="w-20 h-20 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-red-200">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+                <h4 id="errorTitle" class="roblox-font text-2xl text-red-600 uppercase">Alert!</h4>
+                <p id="errorSub" class="text-gray-500 font-bold mt-2">This phone number is already registered.</p>
             </div>
         </div>
     </div>
@@ -280,12 +292,16 @@
                 rsvpBtn: "CONFIRMAR ASISTENCIA",
                 modalTitle: "Confirmar RSVP",
                 labelName: "Nombre del Jugador",
+                labelPhone: "Número de Teléfono",
                 labelGuests: "Invitados",
                 btnSubmitTxt: "¡ME UNO AL JUEGO!",
                 joining: "UNIÉNDOSE...",
                 successTitle: "¡Ya estás dentro!",
                 successSub: "¡Nos vemos el 18 de abril!",
-                placeholder: "Escribe tu nombre...",
+                errorTitle: "¡Alerta!",
+                errorSub: "Este número ya está registrado.",
+                placeholderName: "Tu nombre...",
+                placeholderPhone: "Tu teléfono...",
                 langBtn: "ES ⇄ EN"
             },
             en: {
@@ -299,12 +315,16 @@
                 rsvpBtn: "RSVP NOW",
                 modalTitle: "Confirm RSVP",
                 labelName: "Player Name",
+                labelPhone: "Phone Number",
                 labelGuests: "Squad Size (Guests)",
                 btnSubmitTxt: "CONFIRM JOIN",
                 joining: "JOINING...",
                 successTitle: "You're In!",
                 successSub: "See you on April 18th!",
-                placeholder: "Enter name...",
+                errorTitle: "Alert!",
+                errorSub: "This phone number is already registered.",
+                placeholderName: "Enter name...",
+                placeholderPhone: "Enter phone...",
                 langBtn: "EN ⇄ ES"
             }
         };
@@ -320,11 +340,15 @@
             document.getElementById('rsvpBtn').textContent = t.rsvpBtn;
             document.getElementById('modalTitle').textContent = t.modalTitle;
             document.getElementById('labelName').textContent = t.labelName;
+            document.getElementById('labelPhone').textContent = t.labelPhone;
             document.getElementById('labelGuests').textContent = t.labelGuests;
             document.getElementById('btnSubmitTxt').textContent = t.btnSubmitTxt;
-            document.getElementById('pName').placeholder = t.placeholder;
+            document.getElementById('pName').placeholder = t.placeholderName;
+            document.getElementById('pPhone').placeholder = t.placeholderPhone;
             document.getElementById('successTitle').textContent = t.successTitle;
             document.getElementById('successSub').textContent = t.successSub;
+            document.getElementById('errorTitle').textContent = t.errorTitle;
+            document.getElementById('errorSub').textContent = t.errorSub;
             document.getElementById('langBtnLabel').textContent = t.langBtn;
         }
 
@@ -345,6 +369,7 @@
         const closeBtn = document.getElementById('closeBtn');
         const rsvpForm = document.getElementById('rsvpForm');
         const successMsg = document.getElementById('successMsg');
+        const errorMsg = document.getElementById('errorMsg');
         const formContainer = document.getElementById('formContainer');
         const submitBtn = document.getElementById('submitBtn');
         const spinner = document.getElementById('spinner');
@@ -354,6 +379,7 @@
             modal.classList.replace('hidden', 'flex');
             formContainer.classList.remove('hidden');
             successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
         };
 
         closeBtn.onclick = () => modal.classList.replace('flex', 'hidden');
@@ -364,20 +390,24 @@
             spinner.classList.remove('hidden');
             btnSubmitTxt.textContent = translations[currentLang].joining;
 
+            const formData = {
+                name: document.getElementById('pName').value,
+                phone: document.getElementById('pPhone').value,
+                guests: document.getElementById('pGuests').value
+            };
+
             try {
                 await fetch(scriptURL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name: document.getElementById('pName').value,
-                        guests: document.getElementById('pGuests').value
-                    })
+                    body: JSON.stringify(formData)
                 });
                 
                 formContainer.classList.add('hidden');
                 successMsg.classList.remove('hidden');
-                setTimeout(() => { modal.classList.replace('flex', 'hidden'); rsvpForm.reset(); }, 3000);
+                setTimeout(() => { modal.classList.replace('flex', 'hidden'); rsvpForm.reset(); }, 4000);
+                
             } catch (error) {
                 console.error(error);
             } finally {

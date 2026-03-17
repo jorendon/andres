@@ -8,9 +8,10 @@
     <!-- Meta etiquetas para WhatsApp y redes sociales (Open Graph) -->
     <meta property="og:title" content="Andres' Birthday Bash! 🎮">
     <meta property="og:description" content="You're invited to Andres' Roblox Birthday Party on April 18, 2026. Level Up with us!">
-    <meta property="og:image" content="image_042c68.jpg">
+    <!-- Actualizado a PNG para soportar la transparencia en el preview -->
+    <meta property="og:image" content="avatar.png">
     <meta property="og:type" content="website">
-    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:type" content="image/png">
 
     <!-- Importando Tailwind y fuentes estilo Roblox -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +44,7 @@
             font-family: 'Luckiest+Guy', cursive;
         }
 
-        /* Estilo para las letras multicolor con borde */
+        /* Estilo para las letras multicolor con borde negro tipo logo */
         .multicolor-text span {
             display: inline-block;
             -webkit-text-stroke: 2px #000;
@@ -106,6 +107,9 @@
             align-items: center;
             justify-content: center;
             z-index: 20;
+            /* Resplandor radial para que el PNG transparente resalte */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
         }
 
         .avatar-img {
@@ -150,7 +154,7 @@
         <div class="card-header-bg">
             <div class="card-header-overlay"></div>
             <div class="relative z-10 pt-8">
-                <!-- Título Multicolor letra por letra -->
+                <!-- Título Multicolor -->
                 <h1 class="multicolor-text roblox-font text-5xl sm:text-6xl tracking-widest uppercase">
                     <span style="color: var(--roblox-lava)">B</span><span style="color: var(--roblox-gold)">I</span><span style="color: var(--roblox-sky)">R</span><span style="color: var(--roblox-grass)">T</span><span style="color: var(--roblox-lava)">H</span><span style="color: var(--roblox-gold)">D</span><span style="color: var(--roblox-sky)">A</span><span style="color: var(--roblox-grass)">Y</span><span style="color: var(--roblox-lava)">!</span>
                 </h1>
@@ -159,6 +163,7 @@
         </div>
 
         <div class="px-8 pb-12 pt-4 relative">
+            <!-- Espacio para el nuevo avatar .PNG transparente -->
             <div class="avatar-box floating">
                 <img src="avatar.png" alt="Andres Avatar" class="avatar-img">
             </div>
@@ -198,6 +203,7 @@
         </div>
     </div>
 
+    <!-- Modal Formulario -->
     <div id="modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-[3.5rem] max-w-sm w-full p-10 border-[6px] border-[var(--roblox-gold)] border-b-[14px] relative shadow-2xl">
             <button id="closeBtn" class="absolute top-6 right-6 text-gray-300 hover:text-red-500 transition-all scale-125">

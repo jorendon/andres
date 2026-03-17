@@ -8,19 +8,15 @@
     <!-- Meta etiquetas para WhatsApp y redes sociales (Open Graph) -->
     <meta property="og:title" content="Andres' Birthday Bash! 🎮">
     <meta property="og:description" content="You're invited to Andres' Roblox Birthday Party on April 18, 2026. Level Up with us!">
-    <!-- IMPORTANTE: Cambia 'https://tu-servidor.com/' por la dirección real de tu web para que se vea la imagen -->
-    <meta property="og:image" content="image_05e454.png">
+    <meta property="og:image" content="image_042c68.jpg">
     <meta property="og:type" content="website">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
+    <meta property="og:image:type" content="image/jpeg">
 
-    <!-- Importando Tailwind y la fuente Source Sans 3 -->
+    <!-- Importando Tailwind y fuentes estilo Roblox -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Colores vibrantes de Roblox */
             --roblox-sky: #2CB1FF;
             --roblox-grass: #66CC33;
             --roblox-lava: #FF6600;
@@ -29,22 +25,31 @@
         }
 
         body {
-            /* Usando la nueva fuente Source Sans 3 */
-            font-family: 'Source Sans 3', sans-serif;
-            background: linear-gradient(135deg, var(--roblox-sky) 0%, #ffffff 100%);
+            font-family: 'Fredoka', sans-serif;
+            background: #e5e7eb;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
             overflow-x: hidden;
+            background-image: linear-gradient(rgba(44, 177, 255, 0.7), rgba(44, 177, 255, 0.7)), url('image_058ce9.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .roblox-font {
             font-family: 'Luckiest+Guy', cursive;
         }
 
-        /* Animación de flotado */
+        /* Estilo para las letras multicolor con borde */
+        .multicolor-text span {
+            display: inline-block;
+            -webkit-text-stroke: 2px #000;
+            filter: drop-shadow(0 4px 0px rgba(0,0,0,0.4));
+        }
+
         .floating {
             animation: float 4s ease-in-out infinite;
         }
@@ -54,29 +59,29 @@
             50% { transform: translateY(-15px) rotate(1.5deg); }
         }
 
-        /* Tarjeta tipo plataforma 3D */
         .roblox-card {
             background: white;
             border: 6px solid var(--roblox-gold);
             border-bottom: 14px solid var(--roblox-lava);
             border-radius: 32px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
             position: relative;
             z-index: 10;
+            overflow: hidden;
         }
 
-        /* Base de grama para la plataforma */
-        .roblox-card::after {
-            content: '';
+        .card-header-bg {
+            background-image: url('image_058ce9.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            position: relative;
+        }
+
+        .card-header-overlay {
+            background: linear-gradient(to bottom, rgba(0, 102, 204, 0.4), rgba(255, 255, 255, 1));
             position: absolute;
-            bottom: -24px;
-            left: 5%;
-            width: 90%;
-            height: 24px;
-            background: var(--roblox-grass);
-            border-bottom: 6px solid #4da822;
-            border-radius: 0 0 28px 28px;
-            z-index: -1;
+            inset: 0;
         }
 
         .btn-action {
@@ -93,20 +98,20 @@
 
         .avatar-box {
             position: relative;
-            width: 220px;
-            height: 220px;
-            margin: -110px auto 20px;
-            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.3));
+            width: 240px;
+            height: 240px;
+            margin: -140px auto 10px;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 20;
         }
 
         .avatar-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            display: block;
         }
 
         .loading-spinner {
@@ -119,14 +124,6 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        .cloud {
-            position: absolute;
-            background: rgba(255,255,255,0.8);
-            border-radius: 50px;
-            filter: blur(10px);
-            z-index: 1;
-        }
-
         .confetti-slow {
             position: absolute;
             animation: fall 5s linear infinite;
@@ -137,64 +134,70 @@
             0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
             100% { transform: translateY(500px) rotate(360deg); opacity: 0; }
         }
+        
+        .address-link {
+            transition: all 0.2s;
+        }
+        .address-link:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Decoración: Nubes de fondo -->
-    <div class="cloud w-32 h-12 top-10 left-10 animate-pulse"></div>
-    <div class="cloud w-48 h-16 bottom-10 right-10 animate-pulse" style="animation-delay: 2s;"></div>
-
-    <!-- Contenedor Principal de la Invitación -->
-    <div class="max-w-md w-full roblox-card overflow-hidden text-center">
-        <!-- Banner Superior -->
-        <div id="main-banner" class="h-48 bg-gradient-to-b from-[var(--roblox-blue-dark)] to-[var(--roblox-sky)] flex flex-col items-center justify-center relative overflow-hidden">
-            <div class="z-10 px-4">
-                <h1 class="text-white roblox-font text-5xl sm:text-6xl tracking-widest drop-shadow-[0_4px_0px_rgba(0,0,0,0.6)] uppercase">Birthday Party</h1>
-                <p class="text-[var(--roblox-gold)] font-bold text-base mt-1 tracking-widest uppercase drop-shadow-md">Andres is Leveling Up</p>
+    <div class="max-w-md w-full roblox-card text-center bg-white">
+        
+        <div class="card-header-bg">
+            <div class="card-header-overlay"></div>
+            <div class="relative z-10 pt-8">
+                <!-- Título Multicolor letra por letra -->
+                <h1 class="multicolor-text roblox-font text-5xl sm:text-6xl tracking-widest uppercase">
+                    <span style="color: var(--roblox-lava)">B</span><span style="color: var(--roblox-gold)">I</span><span style="color: var(--roblox-sky)">R</span><span style="color: var(--roblox-grass)">T</span><span style="color: var(--roblox-lava)">H</span><span style="color: var(--roblox-gold)">D</span><span style="color: var(--roblox-sky)">A</span><span style="color: var(--roblox-grass)">Y</span><span style="color: var(--roblox-lava)">!</span>
+                </h1>
+                <p class="text-[var(--roblox-blue-dark)] font-black text-xl tracking-widest uppercase mt-2">Party Invitation</p>
             </div>
         </div>
 
-        <div class="px-8 pb-12 pt-32 relative">
-            <!-- Imagen del Avatar solicitado -->
+        <div class="px-8 pb-12 pt-4 relative">
             <div class="avatar-box floating">
-                <img src="image_05e454.png" alt="Andres Avatar" class="avatar-img" onerror="this.src='https://images.rbxcdn.com/f9e80a0a0f0e8f0e0f0e0f0e0f0e0f0e.png'; console.log('Image not found, using fallback');">
+                <img src="image_042c68.jpg" alt="Andres Avatar" class="avatar-img">
             </div>
 
-            <h2 class="text-4xl font-black text-[var(--roblox-blue-dark)] uppercase roblox-font drop-shadow-sm mb-6">You're Invited!</h2>
+            <div class="mb-6">
+                <h2 class="text-3xl font-black text-[var(--roblox-blue-dark)] uppercase">Andres is turning...</h2>
+                <div class="inline-block bg-[var(--roblox-lava)] text-white roblox-font text-3xl px-6 py-1 rounded-full shadow-lg transform -rotate-2">LEVEL 2026</div>
+            </div>
             
-            <!-- Bloque de Información -->
             <div class="space-y-4 text-left bg-blue-50/70 p-6 rounded-[2.5rem] border-4 border-[var(--roblox-sky)] shadow-inner">
                 <div class="flex items-center gap-4">
                     <div class="bg-[var(--roblox-gold)] p-3.5 rounded-2xl text-white shadow-lg border-b-4 border-[#cc9900]">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     </div>
                     <div>
-                        <p class="text-[10px] text-blue-400 font-black uppercase tracking-widest">When</p>
-                        <p class="font-bold text-gray-700 text-lg leading-tight">Saturday, April 18, 2026</p>
+                        <p class="text-[11px] text-blue-400 font-black uppercase tracking-widest leading-none mb-1">When</p>
+                        <p class="font-bold text-gray-700 text-lg leading-tight">Saturday, April 18, 2026<br><span class="text-sm">Starting at 2:00 PM</span></p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4">
-                    <div class="bg-[var(--roblox-lava)] p-3.5 rounded-2xl text-white shadow-lg border-b-4 border-[#cc4400]">
+                
+                <a href="https://www.google.com/maps/search/?api=1&query=469+Bohannon+Blvd,+Orlando+FL+32824" target="_blank" class="flex items-center gap-4 address-link group">
+                    <div class="bg-[var(--roblox-lava)] p-3.5 rounded-2xl text-white shadow-lg border-b-4 border-[#cc4400] group-hover:scale-110 transition-transform">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <div>
-                        <p class="text-[10px] text-blue-400 font-black uppercase tracking-widest">Location</p>
+                        <p class="text-[11px] text-blue-400 font-black uppercase tracking-widest leading-none mb-1">Where (Tap for Maps)</p>
                         <p class="font-bold text-gray-700 leading-tight">469 Bohannon Blvd,<br>Orlando FL 32824</p>
                     </div>
-                </div>
+                </a>
             </div>
 
-            <!-- Botón de Confirmación -->
             <button id="rsvpBtn" class="w-full mt-10 py-5 px-6 rounded-3xl btn-action text-white roblox-font text-4xl tracking-widest shadow-2xl">
-                RSVP
+                RSVP NOW
             </button>
             
-            <p class="mt-8 text-[9px] text-blue-300 font-black uppercase tracking-[0.4em]">Level Up Celebration 2026</p>
+            <p class="mt-8 text-[10px] text-blue-300 font-black uppercase tracking-[0.4em]">Powered by Block-Engine 2026</p>
         </div>
     </div>
 
-    <!-- Modal para el Formulario RSVP -->
     <div id="modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-[3.5rem] max-w-sm w-full p-10 border-[6px] border-[var(--roblox-gold)] border-b-[14px] relative shadow-2xl">
             <button id="closeBtn" class="absolute top-6 right-6 text-gray-300 hover:text-red-500 transition-all scale-125">
@@ -202,36 +205,34 @@
             </button>
 
             <div id="formContainer">
-                <h3 class="roblox-font text-4xl text-center text-gray-800 mb-8 uppercase tracking-tighter">RSVP</h3>
+                <h3 class="roblox-font text-4xl text-center text-gray-800 mb-8 uppercase tracking-tighter">Confirm RSVP</h3>
                 <form id="rsvpForm" class="space-y-6">
                     <div>
-                        <label class="block text-[11px] font-black text-gray-400 uppercase mb-2 ml-1">Guest Name</label>
+                        <label class="block text-[11px] font-black text-gray-400 uppercase mb-2 ml-1">Player Name</label>
                         <input type="text" id="pName" required class="w-full px-5 py-4 rounded-2xl border-4 border-blue-50 bg-blue-50 focus:bg-white focus:border-[var(--roblox-sky)] outline-none font-bold text-gray-700 transition-all" placeholder="Enter name...">
                     </div>
                     <div>
-                        <label class="block text-[11px] font-black text-gray-400 uppercase mb-2 ml-1">Squad Size</label>
+                        <label class="block text-[11px] font-black text-gray-400 uppercase mb-2 ml-1">Squad Size (Guests)</label>
                         <input type="number" id="pGuests" required min="1" max="10" value="1" class="w-full px-5 py-4 rounded-2xl border-4 border-blue-50 bg-blue-50 focus:bg-white focus:border-[var(--roblox-sky)] outline-none font-bold text-gray-700 transition-all">
                     </div>
                     <button type="submit" id="submitBtn" class="w-full py-5 bg-[var(--roblox-grass)] text-white roblox-font text-2xl rounded-2xl border-b-[8px] border-[#4da822] active:border-b-0 active:translate-y-2 flex items-center justify-center gap-3">
-                        <span id="btnText">CONFIRM</span>
+                        <span id="btnText">CONFIRM JOIN</span>
                         <div id="spinner" class="loading-spinner hidden"></div>
                     </button>
                 </form>
             </div>
 
-            <!-- Vista de éxito -->
             <div id="successMsg" class="hidden text-center py-8">
                 <div class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce border-4 border-green-200">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
-                <h4 class="roblox-font text-4xl text-gray-800 uppercase">Success!</h4>
-                <p class="text-gray-500 font-bold mt-4 text-lg text-center">You're on the list! See you at the party.</p>
+                <h4 class="roblox-font text-4xl text-gray-800 uppercase">You're In!</h4>
+                <p class="text-gray-500 font-bold mt-4 text-lg text-center">See you on April 18th!<br>Level Unlocked.</p>
             </div>
         </div>
     </div>
 
     <script>
-        // RECUERDA: Pega tu URL de Google Apps Script aquí para que funcione el envío
         const scriptURL = "https://script.google.com/macros/s/AKfycbzYtSUhIE6tSvDdJBAMffn9gno23W4kyGE_FGrA3_AmIoEUK6RAzJryUAsMv3ykRxI/exec"; 
 
         const modal = document.getElementById('modal');
@@ -244,26 +245,18 @@
         const spinner = document.getElementById('spinner');
         const btnText = document.getElementById('btnText');
 
-        // Función para abrir modal
         rsvpBtn.onclick = () => {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            modal.classList.replace('hidden', 'flex');
             formContainer.classList.remove('hidden');
             successMsg.classList.add('hidden');
         };
 
-        // Función para cerrar modal
-        closeBtn.onclick = () => {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        };
+        closeBtn.onclick = () => modal.classList.replace('flex', 'hidden');
 
-        // Manejo del formulario
         rsvpForm.onsubmit = async (e) => {
             e.preventDefault();
             
             if (!scriptURL) {
-                console.warn("Falta pegar la scriptURL de Google Sheets.");
                 formContainer.classList.add('hidden');
                 successMsg.classList.remove('hidden');
                 setTimeout(() => { modal.classList.replace('flex', 'hidden'); }, 4000);
@@ -272,10 +265,9 @@
 
             submitBtn.disabled = true;
             spinner.classList.remove('hidden');
-            btnText.textContent = "SENDING...";
+            btnText.textContent = "JOINING...";
 
             try {
-                // Envío de datos al script de Google
                 await fetch(scriptURL, {
                     method: 'POST',
                     mode: 'no-cors',
@@ -293,30 +285,27 @@
                     rsvpForm.reset();
                 }, 4000);
             } catch (error) {
-                console.error("Error enviando RSVP", error);
-                alert("Ocurrió un error. Por favor intenta de nuevo.");
+                alert("Ocurrió un error. ¡Inténtalo de nuevo!");
             } finally {
                 submitBtn.disabled = false;
                 spinner.classList.add('hidden');
-                btnText.textContent = "CONFIRM";
+                btnText.textContent = "CONFIRM JOIN";
             }
         };
 
-        // Efecto de confeti en el banner
         const banner = document.getElementById('main-banner');
-        for(let i=0; i<30; i++) {
+        for(let i=0; i<25; i++) {
             const c = document.createElement('div');
             c.className = 'confetti-slow';
             c.style.left = Math.random() * 100 + '%';
-            c.style.width = (Math.random() * 10 + 5) + 'px';
+            c.style.width = (Math.random() * 8 + 4) + 'px';
             c.style.height = c.style.width;
             c.style.background = ['#FFD700', '#2CB1FF', '#FFFFFF', '#FF6600', '#66CC33'][Math.floor(Math.random()*5)];
             c.style.animationDelay = Math.random() * 5 + 's';
             c.style.borderRadius = '2px';
-            banner.appendChild(c);
+            document.body.appendChild(c);
         }
 
-        // Cerrar modal si se hace clic fuera de la tarjeta
         window.onclick = (e) => { if (e.target === modal) closeBtn.onclick(); };
     </script>
 </body>

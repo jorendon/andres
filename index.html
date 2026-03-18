@@ -209,6 +209,16 @@
                         <p class="font-bold text-gray-700 leading-tight">469 Bohannon Blvd,<br>Orlando FL 32824</p>
                     </div>
                 </a>
+                
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Andres%27+9th+Birthday+Bash!&dates=20260418T180000Z/20260418T220000Z&details=You%27re+invited+to+celebrate+Andres%27+Roblox+Party!&location=469+Bohannon+Blvd,+Orlando,+FL+32824" target="_blank" class="flex items-center gap-4 hover:scale-[1.02] transition-transform">
+                    <div class="bg-[var(--roblox-sky)] p-3 rounded-xl text-white shadow-lg">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                    </div>
+                    <div>
+                        <p id="calendarLabel" class="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-0">Calendar</p>
+                        <p id="calendarText" class="font-bold text-gray-700 leading-tight">Add to Calendar</p>
+                    </div>
+                </a>
             </div>
 
             <button id="rsvpBtn" class="w-full mt-8 py-5 px-6 rounded-3xl btn-action text-white roblox-font text-3xl tracking-widest shadow-xl">
@@ -271,11 +281,30 @@
                 <h4 id="errorTitle" class="roblox-font text-2xl text-red-600 uppercase">Alert!</h4>
                 <p id="errorSub" class="text-gray-500 font-bold mt-2">This phone number is already registered.</p>
             </div>
+
+            <div id="duplicateMsg" class="hidden text-center py-4">
+                <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-yellow-200">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <h4 id="dupTitle" class="roblox-font text-2xl text-yellow-600 uppercase">Player Found</h4>
+                <p id="dupSub" class="text-gray-500 font-bold mt-2 text-sm">Registered for: <span id="dupName" class="text-gray-800"></span></p>
+                
+                <div class="mt-6 flex flex-col gap-3">
+                    <button id="btnUpdateDup" type="button" class="w-full py-3 flex items-center justify-center gap-3 bg-[var(--roblox-sky)] text-white roblox-font text-xl rounded-xl border-b-[6px] border-[#0081cc] active:border-b-0 active:translate-y-1">
+                        <span id="txtUpdateDup">UPDATE INFO</span>
+                        <div id="spinnerUpdate" class="loading-spinner hidden"></div>
+                    </button>
+                    <button id="btnDeleteDup" type="button" class="w-full py-3 flex items-center justify-center gap-3 bg-[var(--roblox-lava)] text-white roblox-font text-xl rounded-xl border-b-[6px] border-[#cc5200] active:border-b-0 active:translate-y-1">
+                        <span id="txtDeleteDup">CANCEL RSVP</span>
+                        <div id="spinnerDelete" class="loading-spinner hidden"></div>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzYtSUhIE6tSvDdJBAMffn9gno23W4kyGE_FGrA3_AmIoEUK6RAzJryUAsMv3ykRxI/exec"; 
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzcBeGc6mzGJfttsV7pNNKUwLIjIuH-a5XEBkRlExGgHKV1C9Ck0EY7iQpE67QARbgw9Q/exec"; 
         
         let currentLang = 'en';
 
@@ -295,13 +324,23 @@
                 labelGuests: "Invitados",
                 btnSubmitTxt: "¡ME UNO AL JUEGO!",
                 joining: "UNIÉNDOSE...",
+                updating: "ACTUALIZANDO...",
+                deleting: "CANCELANDO...",
                 successTitle: "¡Ya estás dentro!",
                 successSub: "¡Nos vemos el 18 de abril!",
+                successUpdated: "¡Datos actualizados!",
+                successDeleted: "RSVP cancelado.",
                 errorTitle: "¡Alerta!",
-                errorSub: "Este número ya está registrado.",
+                errorSub: "Ocurrió un error. Intenta de nuevo.",
+                dupTitle: "¡Jugador Encontrado!",
+                dupSub: "Registrado para: ",
+                btnUpdateDup: "ACTUALIZAR DATOS",
+                btnDeleteDup: "CANCELAR RSVP",
                 placeholderName: "Tu nombre...",
                 placeholderPhone: "Tu teléfono...",
-                langBtn: "ES ⇄ EN"
+                langBtn: "ES ⇄ EN",
+                calendarLabel: "Calendario",
+                calendarText: "Agregar al Calendario"
             },
             en: {
                 subTitle: "Party Invitation",
@@ -318,13 +357,23 @@
                 labelGuests: "Squad Size (Guests)",
                 btnSubmitTxt: "CONFIRM JOIN",
                 joining: "JOINING...",
+                updating: "UPDATING...",
+                deleting: "CANCELING...",
                 successTitle: "You're In!",
                 successSub: "See you on April 18th!",
+                successUpdated: "Info updated!",
+                successDeleted: "RSVP canceled.",
                 errorTitle: "Alert!",
-                errorSub: "This phone number is already registered.",
+                errorSub: "An error occurred. Try again.",
+                dupTitle: "Player Found!",
+                dupSub: "Registered for: ",
+                btnUpdateDup: "UPDATE INFO",
+                btnDeleteDup: "CANCEL RSVP",
                 placeholderName: "Enter name...",
                 placeholderPhone: "Enter phone...",
-                langBtn: "EN ⇄ ES"
+                langBtn: "EN ⇄ ES",
+                calendarLabel: "Calendar",
+                calendarText: "Add to Calendar"
             }
         };
 
@@ -349,6 +398,18 @@
             document.getElementById('errorTitle').textContent = t.errorTitle;
             document.getElementById('errorSub').textContent = t.errorSub;
             document.getElementById('langBtnLabel').textContent = t.langBtn;
+            
+            // New duplicate texts
+            document.getElementById('dupTitle').textContent = t.dupTitle;
+            document.getElementById('dupSub').childNodes[0].textContent = t.dupSub;
+            document.getElementById('txtUpdateDup').textContent = t.btnUpdateDup;
+            document.getElementById('txtDeleteDup').textContent = t.btnDeleteDup;
+            
+            // Calendar
+            const calLab = document.getElementById('calendarLabel');
+            if(calLab) calLab.textContent = t.calendarLabel;
+            const calText = document.getElementById('calendarText');
+            if(calText) calText.textContent = t.calendarText;
         }
 
         function toggleLanguage() {
@@ -369,19 +430,53 @@
         const rsvpForm = document.getElementById('rsvpForm');
         const successMsg = document.getElementById('successMsg');
         const errorMsg = document.getElementById('errorMsg');
+        const duplicateMsg = document.getElementById('duplicateMsg');
+        const dupNameSpan = document.getElementById('dupName');
         const formContainer = document.getElementById('formContainer');
         const submitBtn = document.getElementById('submitBtn');
         const spinner = document.getElementById('spinner');
         const btnSubmitTxt = document.getElementById('btnSubmitTxt');
+        
+        const btnUpdateDup = document.getElementById('btnUpdateDup');
+        const txtUpdateDup = document.getElementById('txtUpdateDup');
+        const spinnerUpdate = document.getElementById('spinnerUpdate');
+        
+        const btnDeleteDup = document.getElementById('btnDeleteDup');
+        const txtDeleteDup = document.getElementById('txtDeleteDup');
+        const spinnerDelete = document.getElementById('spinnerDelete');
+
+        let currentFormData = {};
 
         rsvpBtn.onclick = () => {
             modal.classList.replace('hidden', 'flex');
             formContainer.classList.remove('hidden');
             successMsg.classList.add('hidden');
             errorMsg.classList.add('hidden');
+            duplicateMsg.classList.add('hidden');
         };
 
         closeBtn.onclick = () => modal.classList.replace('flex', 'hidden');
+
+        async function sendData(dataObj) {
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(dataObj)
+            });
+            return await response.json();
+        }
+
+        function showSuccess(title, sub) {
+            formContainer.classList.add('hidden');
+            duplicateMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+            
+            document.getElementById('successTitle').textContent = title;
+            document.getElementById('successSub').textContent = sub;
+            successMsg.classList.remove('hidden');
+            
+            setTimeout(() => { modal.classList.replace('flex', 'hidden'); rsvpForm.reset(); }, 4000);
+        }
 
         rsvpForm.onsubmit = async (e) => {
             e.preventDefault();
@@ -389,30 +484,79 @@
             spinner.classList.remove('hidden');
             btnSubmitTxt.textContent = translations[currentLang].joining;
 
-            const formData = {
+            currentFormData = {
                 name: document.getElementById('pName').value,
                 phone: document.getElementById('pPhone').value,
                 guests: document.getElementById('pGuests').value
             };
 
             try {
-                await fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
+                const result = await sendData(currentFormData);
                 
-                formContainer.classList.add('hidden');
-                successMsg.classList.remove('hidden');
-                setTimeout(() => { modal.classList.replace('flex', 'hidden'); rsvpForm.reset(); }, 4000);
-                
+                if (result.result === 'success') {
+                    showSuccess(translations[currentLang].successTitle, translations[currentLang].successSub);
+                } else if (result.message === 'duplicate') {
+                    formContainer.classList.add('hidden');
+                    dupNameSpan.textContent = result.existingName;
+                    duplicateMsg.classList.remove('hidden');
+                } else {
+                    formContainer.classList.add('hidden');
+                    errorMsg.classList.remove('hidden');
+                }
             } catch (error) {
                 console.error(error);
+                formContainer.classList.add('hidden');
+                errorMsg.classList.remove('hidden');
             } finally {
                 submitBtn.disabled = false;
                 spinner.classList.add('hidden');
                 btnSubmitTxt.textContent = translations[currentLang].btnSubmitTxt;
+            }
+        };
+
+        btnUpdateDup.onclick = async () => {
+            btnUpdateDup.disabled = true;
+            btnDeleteDup.disabled = true;
+            spinnerUpdate.classList.remove('hidden');
+            txtUpdateDup.textContent = translations[currentLang].updating;
+            
+            try {
+                const result = await sendData({ ...currentFormData, action: 'update' });
+                if (result.result === 'success') {
+                    showSuccess(translations[currentLang].successTitle, translations[currentLang].successUpdated);
+                }
+            } catch(error) { 
+                console.error(error);
+                duplicateMsg.classList.add('hidden');
+                errorMsg.classList.remove('hidden');
+            } finally {
+                btnUpdateDup.disabled = false;
+                btnDeleteDup.disabled = false;
+                spinnerUpdate.classList.add('hidden');
+                txtUpdateDup.textContent = translations[currentLang].btnUpdateDup;
+            }
+        };
+
+        btnDeleteDup.onclick = async () => {
+            btnUpdateDup.disabled = true;
+            btnDeleteDup.disabled = true;
+            spinnerDelete.classList.remove('hidden');
+            txtDeleteDup.textContent = translations[currentLang].deleting;
+            
+            try {
+                const result = await sendData({ ...currentFormData, action: 'delete' });
+                if (result.result === 'success') {
+                    showSuccess(translations[currentLang].successTitle, translations[currentLang].successDeleted);
+                }
+            } catch(error) { 
+                console.error(error); 
+                duplicateMsg.classList.add('hidden');
+                errorMsg.classList.remove('hidden');
+            } finally {
+                btnUpdateDup.disabled = false;
+                btnDeleteDup.disabled = false;
+                spinnerDelete.classList.add('hidden');
+                txtDeleteDup.textContent = translations[currentLang].btnDeleteDup;
             }
         };
 

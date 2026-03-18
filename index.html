@@ -221,7 +221,11 @@
                 </a>
             </div>
 
-            <button id="rsvpBtn" class="w-full mt-8 py-5 px-6 rounded-3xl btn-action text-white roblox-font text-3xl tracking-widest shadow-xl">
+            <p id="deadlineTxt" class="mt-6 text-center text-xs font-black text-[var(--roblox-lava)] uppercase tracking-wide">
+                ⏰ RSVP Deadline: April 13th (5 days before)
+            </p>
+
+            <button id="rsvpBtn" class="w-full mt-3 py-5 px-6 rounded-3xl btn-action text-white roblox-font text-3xl tracking-widest shadow-xl">
                 RSVP NOW
             </button>
             
@@ -310,6 +314,7 @@
 
         const translations = {
             es: {
+                titleTxt: '<span style="color: var(--roblox-sky)">¡</span><span style="color: var(--roblox-lava)">C</span><span style="color: var(--roblox-gold)">U</span><span style="color: var(--roblox-sky)">M</span><span style="color: var(--roblox-grass)">P</span><span style="color: var(--roblox-lava)">L</span><span style="color: var(--roblox-gold)">E</span><span style="color: var(--roblox-sky)">A</span><span style="color: var(--roblox-grass)">Ñ</span><span style="color: var(--roblox-lava)">O</span><span style="color: var(--roblox-gold)">S</span><span style="color: var(--roblox-sky)">!</span>',
                 subTitle: "Invitación de Fiesta",
                 turningTxt: "Andrés cumple...",
                 levelLabel: "NIVEL",
@@ -340,9 +345,11 @@
                 placeholderPhone: "Tu teléfono...",
                 langBtn: "ES ⇄ EN",
                 calendarLabel: "Calendario",
-                calendarText: "Agregar al Calendario"
+                calendarText: "Agregar al Calendario",
+                deadlineTxt: "⏰ Límite para confirmar: 13 de Abril (5 días antes)"
             },
             en: {
+                titleTxt: '<span style="color: var(--roblox-lava)">B</span><span style="color: var(--roblox-gold)">I</span><span style="color: var(--roblox-sky)">R</span><span style="color: var(--roblox-grass)">T</span><span style="color: var(--roblox-lava)">H</span><span style="color: var(--roblox-gold)">D</span><span style="color: var(--roblox-sky)">A</span><span style="color: var(--roblox-grass)">Y</span><span style="color: var(--roblox-lava)">!</span>',
                 subTitle: "Party Invitation",
                 turningTxt: "Andres is turning...",
                 levelLabel: "LEVEL",
@@ -373,12 +380,22 @@
                 placeholderPhone: "Enter phone...",
                 langBtn: "EN ⇄ ES",
                 calendarLabel: "Calendar",
-                calendarText: "Add to Calendar"
+                calendarText: "Add to Calendar",
+                deadlineTxt: "⏰ RSVP Deadline: April 13th (5 days before)"
             }
         };
 
         function updateLanguage(lang) {
             const t = translations[lang];
+            
+            const titleEl = document.getElementById('titleTxt');
+            titleEl.innerHTML = t.titleTxt;
+            if (lang === 'es') {
+                titleEl.className = "multicolor-text roblox-font text-[2.2rem] sm:text-5xl tracking-wider uppercase leading-tight";
+            } else {
+                titleEl.className = "multicolor-text roblox-font text-5xl sm:text-6xl tracking-widest uppercase leading-tight";
+            }
+
             document.getElementById('subTitle').textContent = t.subTitle;
             document.getElementById('turningTxt').textContent = t.turningTxt;
             document.getElementById('levelLabel').textContent = t.levelLabel;
@@ -410,6 +427,9 @@
             if(calLab) calLab.textContent = t.calendarLabel;
             const calText = document.getElementById('calendarText');
             if(calText) calText.textContent = t.calendarText;
+
+            const deadlineTxt = document.getElementById('deadlineTxt');
+            if(deadlineTxt) deadlineTxt.textContent = t.deadlineTxt;
         }
 
         function toggleLanguage() {

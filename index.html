@@ -221,7 +221,17 @@
                 </a>
             </div>
 
-            <p id="deadlineTxt" class="mt-6 text-center text-xs font-black text-[var(--roblox-lava)] uppercase tracking-wide">
+            <div class="mt-6 bg-[var(--roblox-sky)] p-3 rounded-2xl border-b-4 border-[#0081cc] shadow-md flex items-center justify-center gap-2">
+                <div class="flex-shrink-0 relative w-14 h-14 flex items-center justify-center drop-shadow-lg">
+                    <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Playground%20slide/3D/playground_slide_3d.png" alt="Slide" class="absolute w-12 h-12 floating" style="animation-delay: 0s; z-index: 1;">
+                    <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Water%20wave/3D/water_wave_3d.png" alt="Water" class="absolute w-8 h-8 bottom-0 right-0 floating" style="animation-delay: 1.5s; z-index: 2; transform: translate(20%, 20%);">
+                </div>
+                <p id="waterSlideNote" class="text-left text-[11px] sm:text-[12px] font-black text-white uppercase tracking-wide leading-tight ml-2">
+                    We will have a water slide! Bring a swimsuit.
+                </p>
+            </div>
+
+            <p id="deadlineTxt" class="mt-4 text-center text-xs font-black text-[var(--roblox-lava)] uppercase tracking-wide">
                 ⏰ RSVP Deadline: April 13th (5 days before)
             </p>
 
@@ -346,6 +356,7 @@
                 langBtn: "ES ⇄ EN",
                 calendarLabel: "Calendario",
                 calendarText: "Agregar al Calendario",
+                waterSlideNote: "¡Habrá tobogán de agua! Trae traje de baño y toalla.",
                 deadlineTxt: "⏰ Límite para confirmar: 13 de Abril (5 días antes)"
             },
             en: {
@@ -381,6 +392,7 @@
                 langBtn: "EN ⇄ ES",
                 calendarLabel: "Calendar",
                 calendarText: "Add to Calendar",
+                waterSlideNote: "We'll have a water slide! Bring a swimsuit & towel.",
                 deadlineTxt: "⏰ RSVP Deadline: April 13th (5 days before)"
             }
         };
@@ -427,6 +439,9 @@
             if(calLab) calLab.textContent = t.calendarLabel;
             const calText = document.getElementById('calendarText');
             if(calText) calText.textContent = t.calendarText;
+
+            const waterSlideNote = document.getElementById('waterSlideNote');
+            if(waterSlideNote) waterSlideNote.textContent = t.waterSlideNote;
 
             const deadlineTxt = document.getElementById('deadlineTxt');
             if(deadlineTxt) deadlineTxt.textContent = t.deadlineTxt;

@@ -44,7 +44,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             padding: 20px;
             overflow-x: hidden;
             background-image: linear-gradient(rgba(44, 177, 255, 0.7), rgba(44, 177, 255, 0.7)), url('https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2064&auto=format&fit=crop');
@@ -81,6 +80,7 @@
             position: relative;
             z-index: 10;
             overflow: hidden;
+            margin: auto 0;
         }
 
         .card-header-bg {
@@ -222,9 +222,8 @@
             </div>
 
             <div class="mt-6 bg-[var(--roblox-sky)] p-3 rounded-2xl border-b-4 border-[#0081cc] shadow-md flex items-center justify-center gap-2">
-                <div class="flex-shrink-0 relative w-14 h-14 flex items-center justify-center drop-shadow-lg">
-                    <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Playground%20slide/3D/playground_slide_3d.png" alt="Slide" class="absolute w-12 h-12 floating" style="animation-delay: 0s; z-index: 1;">
-                    <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Water%20wave/3D/water_wave_3d.png" alt="Water" class="absolute w-8 h-8 bottom-0 right-0 floating" style="animation-delay: 1.5s; z-index: 2; transform: translate(20%, 20%);">
+                <div class="flex-shrink-0 relative w-16 h-16 flex items-center justify-center drop-shadow-lg">
+                    <img src="water-slide.png" alt="Inflatable Water Slide" class="w-full h-full object-contain floating" style="animation-delay: 0s; z-index: 1;">
                 </div>
                 <p id="waterSlideNote" class="text-left text-[11px] sm:text-[12px] font-black text-white uppercase tracking-wide leading-tight ml-2">
                     We will have a water slide! Bring a swimsuit.
